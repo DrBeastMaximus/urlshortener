@@ -17,7 +17,6 @@ const { Header, Sider, Content } = Layout;
 
 const Dashboard = () => {
     const [collapsed, setCollapsed] = useState(false);
-    const history = useNavigate()
 
     const toggle = () => {
         setCollapsed(!collapsed);

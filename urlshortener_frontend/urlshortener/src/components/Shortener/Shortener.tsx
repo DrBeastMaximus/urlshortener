@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Form, Input, Button, Modal, FormInstance} from 'antd';
+import {Form, Input, Button, Modal} from 'antd';
 import './Shortener.scss'
 import {URLService} from "../../services/URLService";
 
@@ -7,13 +7,8 @@ const Shortener = () => {
     const [shortCode, setShortCode] = useState('');
     const [originalUrl, setOriginalUrl] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [ error, setError ] = useState();
     const URLShortenService = new URLService();
     const BASE_URL = "http://localhost:8080/url/s/";
-
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
 
     const handleOk = () => {
         setIsModalOpen(false);
@@ -29,7 +24,7 @@ const Shortener = () => {
             form.resetFields();
 
         } catch (error: any) {
-            setError(error.response.data)
+            throw error;
         }
     };
 
@@ -37,7 +32,9 @@ const Shortener = () => {
     return (
         <div className={'wrapper'}>
             <div className={'shortener-wrapper'}>
-                <h1>Welcome to Url Shortener!</h1>
+                <h1>Welcome to Microservices - Url Shortener!</h1>
+                <p>This Web-app is based on 2 parallel running services. One is for Authentication/User Task and one is for Url Shorten.</p>
+                <p>as well as the API Gateway Service and the discorvery server.</p>
                 <Form form={form}>
                     <Form.Item label="Url" name="url">
                         <Input placeholder={"Put your longest link here!"}

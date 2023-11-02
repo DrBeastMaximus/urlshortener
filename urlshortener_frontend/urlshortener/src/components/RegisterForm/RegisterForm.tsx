@@ -24,7 +24,7 @@ const RegisterForm = (props: Props) => {
             return;
         }
         try {
-            const a = await authService.register(username, password, email);
+            await authService.register(username, password, email);
             window.location.href = '/';
         } catch (error: any) {
             setError(error.response.data)
