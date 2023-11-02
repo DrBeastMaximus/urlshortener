@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Routes, Route, Link, useLocation, useNavigate} from 'react-router-dom';
+import {Routes, Route, Link, useLocation} from 'react-router-dom';
 import Shortener from '../../components/Shortener/Shortener';
 import {Button, Layout, Menu} from 'antd';
 import './Dashboard.scss';
